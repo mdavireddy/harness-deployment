@@ -35,8 +35,8 @@ spec:
       - name: {{.Values.name}}-dockercfg  
        {{- end}}  
       containers:
-      - image: {{.Values.name}}  
+      - image: {{.Values.image}}  
         imagePullPolicy: Always
-        name: {{.Values.image}}  
+        name: rest-service
         ports:
           - containerPort: 8080
