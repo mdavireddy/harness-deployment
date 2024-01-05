@@ -30,9 +30,13 @@ spec:
       labels:
         app: rest-service-eureka
     spec:
+      {{- if .Values.dockercfg}}  
+      imagePullSecrets:  
+      - name: {{.Values.name}}-dockercfg  
+       {{- end}}  
       containers:
-      - image: mdavireddy/rest-service-eureka:latest
+      - image: {{.Values.name}}  
         imagePullPolicy: Always
-        name: rest-service-eureka
+        name: {{.Values.image}}  
         ports:
           - containerPort: 8080
